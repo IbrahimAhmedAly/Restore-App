@@ -1,10 +1,12 @@
 import { Home } from "@mui/icons-material";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import AboutPage from "../../features/about/AboutPage";
 import Catalog from "../../features/catalog/Catalog";
 import ProductDetail from "../../features/catalog/ProductDetail";
 import Contact from "../../features/contact/Contact";
 import App from "../layout/App";
+import ServerError from "../error/ServerError";
+import NotFound from "../error/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +18,9 @@ export const router = createBrowserRouter([
       { path: "catalog/:id", element: <ProductDetail /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <Contact /> },
+      { path: "server-error", element: <ServerError /> },
+      { path: "not-found", element: <NotFound /> },
+      { path: "*", element: <Navigate replace to="/not-found" /> },
     ],
   },
 ]);
