@@ -13,18 +13,21 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import agent from "../../app/api/agent";
 import { LoadingButton } from "@mui/lab";
+import { useStoreContext } from "../../app/context/StoreContext";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
+  const { setBasket } = useStoreContext();
   const [loading, setLoading] = useState(false);
 
   const handleAddItem = (productId: number) => {
     setLoading(true);
     agent.basket
       .addItem(productId)
+      .then((basket) => setBasket(basket))
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   };

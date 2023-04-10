@@ -1,8 +1,3 @@
-import { useState, useEffect } from "react";
-import agent from "../../app/api/agent";
-import { Basket } from "../../app/models/basket";
-import LoadingComponent from "../../app/layout/LoadingComponent";
-
 import {
   IconButton,
   Paper,
@@ -15,20 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
+import { useStoreContext } from "../../app/context/StoreContext";
 
 const BasketPage = () => {
-  const [loading, setloading] = useState(true);
-  const [basket, setBasket] = useState<Basket | null>(null);
-
-  useEffect(() => {
-    agent.basket
-      .get()
-      .then((basket) => setBasket(basket))
-      .catch((error) => console.log(error))
-      .finally(() => setloading(false));
-  }, []);
-
-  if (loading) return <LoadingComponent message="Loading basket..." />;
+  const { basket } = useStoreContext();
 
   if (!basket)
     return <Typography variant="h3">Your basket is empty</Typography>;
