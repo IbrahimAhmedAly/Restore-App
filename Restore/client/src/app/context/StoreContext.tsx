@@ -25,10 +25,8 @@ export function StoreProvider({ children }: PropsWithChildren<any>) {
 
   const removeItem = (productId: number, quanity: number) => {
     if (!basket) return;
-
     const items = [...basket.items];
     const itemIndex = items.findIndex((i) => i.productId === productId);
-
     if (itemIndex >= 0) {
       items[itemIndex].quantity -= quanity;
       if (items[itemIndex].quantity === 0) items.splice(itemIndex, 1);
