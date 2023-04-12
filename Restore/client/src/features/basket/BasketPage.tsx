@@ -1,7 +1,8 @@
 import {
   Box,
+  Button,
   Grid,
-  IconButton,
+  Link,
   Paper,
   Table,
   TableBody,
@@ -136,6 +137,12 @@ const BasketPage = () => {
         <Grid item lg={6} xs={12} />
         <Grid item lg={6} xs={12}>
           <BasketSummary />
+          {/* <Button
+            component={Link}
+            to='checkout'
+          >
+            Check out
+          </Button> */}
         </Grid>
       </Grid>
     </>
