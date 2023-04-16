@@ -11,7 +11,7 @@ import Header from "./Header";
 import { getCookie } from "../utils/util";
 import agent from "../api/agent";
 import LoadingComponent from "./LoadingComponent";
-import { useAppDispatch, useAppSelector } from "../store/configureStore";
+import { useAppDispatch } from "../store/configureStore";
 import { setBasket } from "../../features/basket/basketSlice";
 
 function App() {
