@@ -9,8 +9,8 @@ namespace API.Extensions
         {
             var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
-            response.Headers.Add("Pagionation", JsonSerializer.Serialize(metaData, options));
-            response.Headers.Add("Acess-Control-Expose-Headers", "Pagionation");
+            response.Headers.Add("pagionation", JsonSerializer.Serialize(metaData, options));
+            response.Headers.Add("Access-Control-Expose-Headers", "Pagionation");
         }
     }
 }
