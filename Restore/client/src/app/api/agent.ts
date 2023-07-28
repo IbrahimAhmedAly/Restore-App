@@ -19,7 +19,6 @@ axios.interceptors.response.use(
         response.data,
         JSON.parse(pagination)
       );
-      console.log(response);
       return response;
     }
     return response;

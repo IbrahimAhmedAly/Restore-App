@@ -6,6 +6,7 @@ import { useState } from "react";
 const ProductSearch = () => {
   const { productParams } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
+
   const [searchTerm, setSearchTerm] = useState(productParams.searchTerm);
 
   const deboundedSearch = debounce((event: any) => {
